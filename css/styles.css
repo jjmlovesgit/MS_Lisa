@@ -1,0 +1,244 @@
+        
+      #user-input-field {
+        width: 80%; /* Set desired width here */
+        padding: 8px; /* Adding some padding for better appearance */
+        box-sizing: border-box; /* So the width includes padding */
+        margin: 0 auto; /* Centering the input box */
+        display: block; /* To apply margin auto */
+        }
+
+      #openAIResponse {
+        width: 80%; /* Set desired width here */
+        padding: 8px; /* Adding some padding for better appearance */
+        box-sizing: border-box; /* So the width includes padding */
+        margin: 0 auto; /* Centering the input box */
+        display: block; /* To apply margin auto */
+      }
+    
+      body {
+        background-color: #121212;
+        color: #ffffff;
+        body {
+            font-family: 'Mulish', sans-serif;
+        }
+      }
+ 
+      .input-container {
+        display: flex; /* Using Flexbox for alignment */
+        justify-content: center; /* Center children horizontally */
+        align-items: center; /* Center children vertically (if the container has a specific height) */
+        /* Other styles */
+      }
+      
+      .input-style {
+        /* Remove any margin, padding, or alignment properties that could affect centering */
+        margin: 0; /* Remove default margins */
+        /* Other styles */
+      }
+      
+      .input-style, .response-style {
+        font-family: 'Mulish', sans-serif;
+        width: 600px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        padding: 10px;
+        white-space: pre-wrap;
+        background-color: #F0F0F0;
+        color: black;
+        text-align: left;
+      }
+      
+      .input-style {
+          height: 40px; /* Fixed height for input */
+      }
+      
+      .response-style {
+          min-height: 100px;
+          max-height: 200px;
+          overflow-y: auto; /* Enable scrolling for response */
+      }
+      
+      .buttons-container {
+        display: flex;
+        justify-content: center; /* Center buttons horizontally */
+        align-items: center; /* Align buttons vertically, if needed */
+        flex-wrap: wrap; /* Wrap buttons to the next line if the container is too narrow */
+        gap: 10px; /* Spacing between buttons */
+        margin-top: 10px; /* Space between the avatar and the button strip */
+        margin-bottom: 0px; /* Space below the button strip */
+      }
+
+      .input-container textarea {
+        font-family: 'Mulish', sans-serif;
+        width: 600px;
+        margin: 0;
+        padding: 8px;
+        box-sizing: border-box;
+        display: block;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        font-size: 16px;
+        height: auto; /* Adjust the height to match the lines you expect */
+    }
+    
+    
+    .input-container, .response-container {
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .response-container {
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .logging-container {
+        display: flex;
+        justify-content: center; /* Center horizontally */
+        align-items: center; /* Align items vertically, useful if there's more content */
+        margin-top: 10px; /* Space above the container */
+        margin-bottom: 10px; /* Space below the container */
+    }
+
+    .centered-container, .buttons-container, .input-container, .response-container, .logging-container {
+        width: 100%; /* Full width of their parent container */
+        max-width: 960px; /* Maximum width can be set as desired */
+        margin: 0 auto; /* Auto margins for horizontal centering */
+    }
+    
+
+      /* added css from here */
+
+      body * {
+        font-family: 'Mulish', sans-serif;
+        text-align: center;
+      }
+       
+      #logging {
+        width: 100%; /* Use 100% of the container width */
+        max-width: 300px; /* Adjust the maximum width as needed */
+        font-size: 16px;
+        /* Your existing styles */
+      }
+
+      #content {
+        width: 820px;
+        position: relative;
+        margin: 0 auto;
+      }
+
+      #buttons {
+        clear: both;
+        padding: 0 0 0 0;
+        text-align: center;
+      }
+
+      button {
+        padding: 10px 20px;
+        border-radius: 5px;
+        border: none;
+        font-size: 16px;
+        margin: 0 5px;
+        background-color: #015aff;
+        color: #fff;
+        margin-bottom: 10px; 
+        margin-top: 10px;
+      }
+
+      button:hover {
+        background-color: #07702c;
+        cursor: pointer;
+        transition: all 0.2s ease-out;
+      }
+
+      #status {
+        clear: both;
+        padding: 20px 0 0 0;
+        text-align: left;
+        display: inline-block;
+        zoom: 1;
+        line-height: 140%;
+        font-size: 15px;
+      }
+
+      #status div {
+        padding-bottom: 10px;
+      }
+     
+      #openAIResponse {
+        font-family: 'Mulish', sans-serif;
+        width: 600px;
+        padding: 8px;
+        box-sizing: border-box;
+        display: block;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        font-size: 16px;
+        background-color: #ffffff; /* Or any color you prefer */
+        color: #000000; /* Or any color you prefer */
+        max-height: 150px; /* Adjust based on the number of lines you want before scrolling */
+        overflow-y: auto; /* Enable vertical scrolling */
+        border: 1px solid #ccc; /* Optional: for visual boundary */
+    }
+
+    #videoContainer {
+      align-items: center;
+      /* Other styles remain unchanged */
+    }
+    
+    #videoContainer {
+      position: relative;
+      width: 500px; /* Or whatever width you want */
+      height: 400px; /* Should be equal to #remoteVideo for perfect vertical centering */
+      display: flex;
+      justify-content: left; /* Chnage to center to center video circle in frame */
+      padding-left: 125px; /* rempve when you line above to center to center video circle in frame */
+      align-items: center;
+      margin: 0 auto; /* This centers #videoContainer within its parent */
+    }
+    
+    #remoteVideo {
+      width: 400px; /* This width should match the height for a perfect circle */
+      height: 400px; /* This height will be the diameter of the circle */
+      border-radius: 50%;
+      overflow: hidden;
+      display: flex; /* Using flex to center the video content */
+      justify-content: center; /* Centering horizontally */
+      align-items: center; /* Centering vertically */
+      background-color: #ffffff; /* Fallback color */
+      transform: translateY(-10%) scale(.90); /* Adjust the scale value to zoom out */
+      /* The translate values ensure that the video is centered in its container */
+      position: relative; /* It should be relative or absolute depending on your layout */
+      top: 50px; /* Adjust this value to move the video down within its container */
+    }
+     
+    #video-wrapper {
+      background: url(bg.png);
+      justify-content: center;
+      align-items: center; /* This will vertically center the video in the video wrapper */
+      height: 15px; /* Adjust the height as needed to provide space for lowering the circle */
+      padding-top: 5px; /* Add padding at the top to push the circle down */
+    }
+    
+    video {
+      /* other styles... */
+      transform: translateY(30%) scale(1.95865); /* Adjust translateY to move the video down within the mask */
+      /* Adjust the scale if you need to zoom in or out */
+      border-radius: 50%; /* Maintain the circular shape for the video */
+      object-fit: cover; /* Cover the container with the video without distorting the aspect ratio */
+      overflow: hidden; /* Hide anything outside the border-radius */
+      /* Make sure the video fits perfectly within the #remoteVideo container */
+    }
+    
+
+    #talk-video {
+      width: 500px; /* Keep the original video size */
+      height: 500px; /* Keep the original video size */
+      object-fit: cover; /* Ensures the video covers the area without distortion */
+      border-radius: 50%; /* This will make the video circular */
+      overflow: hidden; /* This will hide anything outside the circular border */
+    }
+      

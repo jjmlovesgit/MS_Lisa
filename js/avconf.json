@@ -1,0 +1,23 @@
+{
+  "AzureSpeechResource": {
+    "Region": "westus2",
+    "SubscriptionKey": "<your key here> note you must create the US west Resource in Azure to get this" 
+  },
+  "ICEServer": {
+    "URL": "turn:relay.communication.microsoft.com:3478",
+    "Username": "You need to run helper script issue-relay-tokens.py to get these values",
+    "Credential": "You need to run helper script issue-relay-tokens.py to get these values"
+  },
+  "TTSConfiguration": {
+    "Voice": "en-US-JennyNeural",
+    "CustomVoiceEndpointId": ""
+  },
+  "AvatarConfiguration": {
+    "Character": "lisa",
+    "Style": "casual-sitting",
+    "BackgroundColor": "#FFFFFFFF",
+    "CustomAvatar": false,
+    "TransparentBackground": true,
+    "VideoCrop": false
+  }
+}
