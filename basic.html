@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Talking Avatar Service Demo</title>
+    <link href="./css/styles.css" rel="stylesheet">
+</head>
+<body style="background-image: url('background.png'); background-repeat: no-repeat; background-size: cover;">
+
+<!-- This is the centered-container div that will hold the avatar video and center it at the top -->
+<div class="centered-container">
+      <div id="videoContainer" style="position: relative; width: 960px;">
+      <div id="overlayArea" style="position: absolute;" hidden="hidden">
+        <p id="overlayText" style="font-size: large;">Live Video</p>
+      </div>
+      <div id="remoteVideo">
+        <video autoplay playsinline>
+          <!-- Your video source here -->
+        </video>
+      </div>      
+      <canvas id="canvas" width="1920" height="1080" style="background-color: transparent;" hidden="hidden"></canvas>
+      <canvas id="tmpCanvas" width="1920" height="1080" hidden="hidden"></canvas>
+    </div>
+</div>
+
+<!-- Container for buttons, centered underneath the avatar -->
+<div class="buttons-container">
+  <button id="startSession" onclick="window.startSession()">Connect</button>
+  <button id="voice-typing-button">Voice Typing</button>
+  <button id="getOpenAIResponse" onclick="speakAndFetchResponse()">Let's Chat</button>
+</div>
+
+<!-- Container for the OpenAI query input -->
+<div class="input-container">
+  <textarea id="openAIQuery" class="input-style" onfocus="clearDefaultText(this)">I am a helpful assistant... please ask your questions?</textarea>
+</div>
+
+<!-- Section to display OpenAI's response -->
+<div class="response-container">
+  <div id="openAIResponse" class="response-style"></div>
+</div>
+
+
+<div class="logging-container" style="padding-top: 10px; padding-bottom: 10px;">
+  <div id="logging"></div>
+</div>
+
+<div id="status"></div>
+
+
+<script>
+  // Adjusted function to use new input fields
+  function handleOpenAIQuery() {
+    const userQuery = document.getElementById('openAIQuery').value;
+
+    // Call the OpenAI API with the user's query
+    fetchOpenAIResponse(userQuery)
+      .then((response) => {
+        // Display the OpenAI response
+        const openAIResponseElement = document.getElementById('openAIResponse');
+        openAIResponseElement.innerText = response;
+      })
+      .catch((error) => {
+        console.error('Error fetching OpenAI response:', error);
+      });
+  }
+</script>
+
+<script>
+  // Function to convert URLs in text to clickable links
+  function linkify(text) {
+    const urlRegex = /(https?:\/\/[^\s]+)/g;
+    return text.replace(urlRegex, function(url) {
+      return `<a href="${url}" target="_blank">${url}</a>`; // This opens links in a new tab
+    });
+  }
+
+  if ('webkitSpeechRecognition' in window) {
+  var recognition = new webkitSpeechRecognition();
+  recognition.continuous = false; // Set this to true if you want the recognition to continue even after it detects a pause in speaking
+  recognition.interimResults = true; // Show interim results
+  recognition.lang = 'en-US'; // Set the language of the recognition
+
+  // What to do when speech is detected
+  recognition.onresult = function(event) {
+    var final_transcript = '';
+    for (var i = event.resultIndex; i < event.results.length; ++i) {
+      if (event.results[i].isFinal) {
+        final_transcript += event.results[i][0].transcript;
+      }
+    }
+    // Update the openAIQuery textarea with the result
+    document.getElementById('openAIQuery').value = final_transcript;
+  };
+
+  // Start the speech recognition when the button is clicked
+  document.getElementById('voice-typing-button').addEventListener('click', function() {
+    recognition.start();
+  });
+} else {
+  alert("Web Speech API is not supported in this browser.");
+}
+</script>
+
+<script src="https://aka.ms/csspeech/jsbrowserpackageraw"></script>
+<script src="./js/basic.js"></script>
+
+</body>
+</html>
