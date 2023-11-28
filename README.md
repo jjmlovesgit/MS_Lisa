@@ -9,18 +9,18 @@ https://techcommunity.microsoft.com/t5/ai-azure-ai-services-blog/azure-ai-speech
 * run this: npm install express
 * run this: npm install openai
 
-Input you OpenAI API key in the congig.json file to enable the LLM chat
+Input you OpenAI API key in the config.json file to enable the LLM chat
 Input the API data related to Microsoft in the file avconf.json
-Note:  Use the helper file (issue-relay-tokens.py) to get the onfo for avconf.json
-* Run a test to ensure yor api is set correctly by checking ChatGPT:  Run test_openai.js
+Note:  Use the helper file (issue-relay-tokens.py) to get the info for avconf.json
+* Run a test to ensure yor api is set correctly by checking ChatGPT:  Run test_openai.js and Run issue=relay-tokens.py
+* You want to get both these to run before moving on to more complex work 
 * Got issues?  Cut and paste to ChatGPT and ask for assistance 
 
 ## Start the demo:
-* Open a session in your terminal in the folder with our code run this: node app.js 
-* You should see this message - server started on port localhost:3005
-* (open basic.html app) in the browser add localhost:3005
-* (connect) press connect you should see the connection ready 
-* (Enter Chat Text) press the start button to start streaming
+* Open a session in your terminal in the folder where your code resides:  run this: node app.js 
+* You should see this message result in your window - server started on port localhost:3005
+* Go to your browser and open basic.html file in the browser add localhost:3005
+* Exercise the application as per the Videos:
 
 ## Final Thoughts
 * Be patient and enjoy the puzzle if things are not working right away -- stay with it you will get it!
