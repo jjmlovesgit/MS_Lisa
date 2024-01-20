@@ -1,6 +1,6 @@
 ## Microsoft Lisa - Text to speech Avatar
 
-Note:  Consider the Microsoft relese notes and repo for more complete explanation and helpful supportign links
+Note:  Consider the Microsoft relese notes and repo for more complete explanation and helpful supporting links
 https://techcommunity.microsoft.com/t5/ai-azure-ai-services-blog/azure-ai-speech-announces-public-preview-of-text-to-speech/ba-p/3981448
 
 
